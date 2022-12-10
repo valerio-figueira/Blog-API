@@ -7,6 +7,12 @@ const cors = require('cors');
 require('dotenv').config();
 
 
+    // MIDDLEWARE TO ENABLE CORS
+    app.use(cors({
+      origin: '*',
+      methods: ['GET']
+    }));
+
     // MIDDLEWARE FOR STATIC FILES
     app.use(express.static(path.join(__dirname, 'public')));
 
@@ -19,20 +25,13 @@ require('dotenv').config();
     )
     app.use(express.json());
 
-    
+
     // MIDDLEWARE TO REDIRECT ALL '/posts' ENTRIES TO ./routes/Posts
     app.use('/posts', require('./routes/Posts'));
 
 
     // NECESSARY TO RUN SERVELESS
     const router = express.Router();
-
-
-    // MIDDLEWARE TO ENABLE CORS
-    app.use(cors({
-      origin: '*',
-      methods: ['GET']
-    }));
 
 
 
