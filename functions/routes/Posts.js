@@ -1,0 +1,39 @@
+const router = require('express').Router();
+const Post = require('../models/Posts');
+
+
+
+// CREATE
+router.post('/', async (req, res) => {
+    const {title, description, content, image} = req.body;
+
+    const post = {
+        title,
+        description,
+        content,
+        image
+    }
+
+    try{
+        await Post.create(post);
+
+        res.status(201).json({message: 'Post registered successfully'})
+    } catch(error){
+        res.status(500).json({error: error});
+    };
+})
+
+// READ
+router.get('/', async (req, res) => {
+    try{
+        // THIS WILL RETURN ALL POSTS FROM MONGODB COLLECTION
+        const post = await Post.find();
+        console.log(post)
+
+        res.status(200).json(post);
+    } catch(error){
+        res.status(500).json({error: error});
+    };
+})
+
+module.exports = router;
