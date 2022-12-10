@@ -6,6 +6,3 @@
     to = "/.netlify/functions/api/:splat"
     from = "/*"
     status = 200
-
-[functions]
-    node_blunder = "esbuild
