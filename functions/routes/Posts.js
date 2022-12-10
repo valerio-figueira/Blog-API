@@ -28,7 +28,6 @@ router.get('/', async (req, res) => {
     try{
         // THIS WILL RETURN ALL POSTS FROM MONGODB COLLECTION
         const post = await Post.find();
-        console.log(post)
 
         res.status(200).json(post);
     } catch(error){
