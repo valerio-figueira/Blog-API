@@ -28,7 +28,7 @@ require('dotenv').config();
 
     // MIDDLEWARE TO REDIRECT ALL '/posts' ENTRIES TO ./routes/Posts
     app.use('/posts', require('./routes/Posts'));
-
+    app.use('/aside-posts', require('./routes/AsidePosts'));
 
     // NECESSARY TO RUN SERVELESS
     const router = express.Router();
