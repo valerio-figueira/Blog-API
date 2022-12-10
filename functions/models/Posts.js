@@ -10,7 +10,7 @@ const Post = mongoose.model('Posts', {
         required: true
     },
     content: {
-        type: String,
+        type: [String],
         required: true
     },
     image: {

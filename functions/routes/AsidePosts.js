@@ -4,11 +4,12 @@ const AsidePosts = require('../models/AsidePosts');
 
 // CREATE
 router.post('/', async (req, res) => {
-    const { post_number, title, content, image } = req.body;
+    const { post_number, title, description, content, image } = req.body;
 
     const post = {
         post_number,
         title,
+        description,
         content,
         image
     }
@@ -29,6 +30,22 @@ router.get('/', async (req, res) => {
         const post = await AsidePosts.find();
 
         res.status(200).json(post);
+    } catch(error){
+        res.status(500).json({error: error});
+    };
+})
+
+// READ ONE
+router.get('/:id', async (req, res) => {
+    try{
+        await AsidePosts.findOne({_id: req.params.id}).lean().then(post => {
+            if(post){
+                res.status(200).json(post)
+            }
+        }).catch(error => {
+            res.status(500).json({error: error});
+        })
+
     } catch(error){
         res.status(500).json({error: error});
     };

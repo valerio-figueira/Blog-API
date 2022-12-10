@@ -35,4 +35,20 @@ router.get('/', cors(), async (req, res) => {
     };
 })
 
+// READ ONE
+router.get('/:id', async (req, res) => {
+    try{
+        await Post.findOne({_id: req.params.id}).lean().then(post => {
+            if(post){
+                res.status(200).json(post)
+            }
+        }).catch(error => {
+            res.status(500).json({error: error});
+        })
+
+    } catch(error){
+        res.status(500).json({error: error});
+    };
+})
+
 module.exports = router;

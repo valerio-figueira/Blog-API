@@ -9,17 +9,21 @@ const AsidePosts = mongoose.model('Aside_Posts', {
         type: String,
         required: true
     },
-    content: {
+    description: {
         type: String,
         required: true
     },
+    content: {
+        type: [String],
+        required: true
+    },
     image: {
-        type: String,
+        type: [String],
         required: true
     },
     date: {
         type: Date,
-        default: Date.now()
+        default: new Date().getDate()
     }
 })
 
