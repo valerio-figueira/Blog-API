@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Post = require('../models/Posts');
-
+const cors = require('cors');
 
 
 // CREATE
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
 })
 
 // READ
-router.get('/', async (req, res) => {
+router.get('/', cors(), async (req, res) => {
     try{
         // THIS WILL RETURN ALL POSTS FROM MONGODB COLLECTION
         const post = await Post.find();
