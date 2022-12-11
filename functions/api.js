@@ -44,9 +44,9 @@ router.get('/', cors(), (req, res) => {
     'by Valerio': 'Hello, world! This is my own public API made using Nodejs & Express ^^',
     'message': 'Be Welcome!',
     'About this API': 'You should navigate through these paths as well:',
-    'posts': 'http://localhost:8888/posts',
-    'aside': 'http://localhost:8888/aside-posts',
-    'author': 'http://localhost:8888/author'
+    'posts': 'https://resilient-kangaroo-970dc9.netlify.app/posts',
+    'aside': 'https://resilient-kangaroo-970dc9.netlify.app/aside-posts',
+    'author': 'https://resilient-kangaroo-970dc9.netlify.app/author'
   })
 })
 
