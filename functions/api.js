@@ -29,6 +29,7 @@ require('dotenv').config();
     // MIDDLEWARE TO REDIRECT ALL '/posts' ENTRIES TO ./routes/Posts
     app.use('/posts', require('./routes/Posts'));
     app.use('/aside-posts', require('./routes/AsidePosts'));
+    app.use('/home-posts', require('./routes/Home'));
 
     // NECESSARY TO RUN SERVELESS
     const router = express.Router();
@@ -40,13 +41,25 @@ require('dotenv').config();
 router.get('/', cors(), (req, res) => {
   res.json({
     'path': 'Home',
-    'message': 'Hello, world!'
+    'by Valerio': 'Hello, world! This is my own public API made using Nodejs & Express ^^',
+    'message': 'Be Welcome!',
+    'About this API': 'You should navigate through these paths as well:',
+    'posts': 'http://localhost:8888/posts',
+    'aside': 'http://localhost:8888/aside-posts',
+    'author': 'http://localhost:8888/author'
   })
 })
 
 router.get('/author', cors(), (req, res) => {
     res.json({
-      'author': 'Valerio Figueira'
+      'Author': 'Valerio Figueira',
+      'About': 'Just a student and web developer, looking for a space in this technology world. I believe in hard work and discipline. Some technologies I am currently learning are NodeJS, React, Javascript, HTML, CSS, MongoDB, and my favorite O.S Linux.',
+      'Linkedin': 'https://www.linkedin.com/in/valerio-figueira/',
+      'Github': 'https://github.com/valerio-figueira',
+      'Portfolio': 'https://valerio-figueira.github.io/portfolio/',
+      'Location': 'Monte Alegre de Minas - Minas Gerais',
+      'Country': 'Brazil',
+      'Audiat sapiens': '"Tria sunt studientibus necessaria: natura, exercitium et disciplina." - Hugo de São Vitor'
     })
 })
 
