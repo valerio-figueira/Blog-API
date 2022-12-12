@@ -7,7 +7,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 
-    // MIDDLEWARE TO ENABLE CORS
+    // MIDDLEWARE TO ENABLE CORS (Cross Origin Resource Sharing)
     app.use(cors({
       origin: '*',
       methods: ['GET']
@@ -30,6 +30,8 @@ require('dotenv').config();
     app.use('/posts', require('./routes/Posts'));
     app.use('/aside-posts', require('./routes/AsidePosts'));
     app.use('/home-posts', require('./routes/Home'));
+    app.use('/popular', require('./routes/Popular'));
+
 
     // NECESSARY TO RUN SERVELESS
     const router = express.Router();
@@ -39,15 +41,16 @@ require('dotenv').config();
 
 // ROUTES
 router.get('/', cors(), (req, res) => {
-  res.json({
-    'path': 'Home',
-    'by Valerio': 'Hello, world! This is my own public API made using Nodejs & Express ^^',
-    'message': 'Be Welcome!',
-    'About this API': 'You should navigate through these paths as well:',
-    'posts': 'https://resilient-kangaroo-970dc9.netlify.app/posts',
-    'aside': 'https://resilient-kangaroo-970dc9.netlify.app/aside-posts',
-    'author': 'https://resilient-kangaroo-970dc9.netlify.app/author'
-  })
+    res.json({
+      'path': 'Home',
+      'by Valerio': 'Hello, world! This is my own public API made using Nodejs & Express ^^',
+      'message': 'Be Welcome!',
+      'About this API': 'You should navigate through these paths as well:',
+      'posts': 'https://resilient-kangaroo-970dc9.netlify.app/posts',
+      'aside': 'https://resilient-kangaroo-970dc9.netlify.app/popular',
+      'aside': 'https://resilient-kangaroo-970dc9.netlify.app/aside-posts',
+      'author': 'https://resilient-kangaroo-970dc9.netlify.app/author'
+    })
 })
 
 router.get('/author', cors(), (req, res) => {
@@ -75,7 +78,7 @@ router.get('/imgs/:name', cors(), (req, res) => {
 })
 
 
-app.use('/', router)
+app.use('/', router);
 
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD);

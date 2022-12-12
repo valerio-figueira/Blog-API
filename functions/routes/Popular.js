@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const Post = require('../models/Posts');
-
+const Popular = require('../models/Popular');
 
 // CREATE
 router.post('/', async (req, res) => {
@@ -14,11 +13,11 @@ router.post('/', async (req, res) => {
     }
 
     try{
-        await Post.create(post);
+        await Popular.create(post);
 
-        res.status(201).json({message: 'Post registered successfully'})
+        res.status(201).json({message: 'Post registered successfully'});
     } catch(error){
-        res.status(500).json({error: error});
+        res.status(500).json({error:error});
     };
 })
 
@@ -26,7 +25,7 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
     try{
         // THIS WILL RETURN ALL POSTS FROM MONGODB COLLECTION
-        const post = await Post.find();
+        const post = await Popular.find();
 
         res.status(200).json(post);
     } catch(error){
@@ -37,17 +36,17 @@ router.get('/', async (req, res) => {
 // READ ONE
 router.get('/:id', async (req, res) => {
     try{
-        await Post.findOne({_id: req.params.id}).lean().then(post => {
+        await Popular.findOne({_id: req.params.id}).lean().then(post => {
             if(post){
                 res.status(200).json(post)
             }
         }).catch(error => {
             res.status(500).json({error: error});
         })
-
     } catch(error){
         res.status(500).json({error: error});
     };
 })
+
 
 module.exports = router;
