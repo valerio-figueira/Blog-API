@@ -4,7 +4,6 @@ const serverless = require('serverless-http');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-const serveFavicon = require('serve-favicon');
 require('dotenv').config();
 
 
@@ -34,7 +33,7 @@ require('dotenv').config();
     app.use('/home-posts', require('./routes/Home'));
     app.use('/popular', require('./routes/Popular'));
 
-    
+
     // NECESSARY TO RUN SERVELESS
     const router = express.Router();
 
@@ -76,8 +75,8 @@ router.get('/imgs/:name', cors(), (req, res) => {
 });
 
 
-
 app.use('/', router);
+
 
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD);
