@@ -16,7 +16,7 @@ require('dotenv').config();
 
     // MIDDLEWARE FOR STATIC FILES
     app.use(express.static(path.join(__dirname, 'public')));
-
+    app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')))
 
     // JSON CONFIG IN MIDDLEWARES
     app.use(
@@ -32,8 +32,6 @@ require('dotenv').config();
     app.use('/aside-posts', require('./routes/AsidePosts'));
     app.use('/home-posts', require('./routes/Home'));
     app.use('/popular', require('./routes/Popular'));
-
-    app.use(favicon('public/favicon.ico'))
 
     // NECESSARY TO RUN SERVELESS
     const router = express.Router();
