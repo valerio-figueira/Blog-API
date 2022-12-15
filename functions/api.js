@@ -4,6 +4,7 @@ const serverless = require('serverless-http');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
+const favicon = require('serve-favicon');
 require('dotenv').config();
 
 
@@ -32,10 +33,10 @@ require('dotenv').config();
     app.use('/home-posts', require('./routes/Home'));
     app.use('/popular', require('./routes/Popular'));
 
+    app.use(favicon('public/favicon.ico'))
 
     // NECESSARY TO RUN SERVELESS
     const router = express.Router();
-
 
 
 
@@ -75,8 +76,7 @@ router.get('/imgs/:name', cors(), (req, res) => {
   const fileName = req.params.name;
   res.sendFile(fileName, options);
 
-})
-
+});
 
 app.use('/', router);
 
@@ -92,4 +92,4 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.vimpoeg.mon
 });
 
 
-module.exports.handler = serverless(app)
+module.exports.handler = serverless(app);

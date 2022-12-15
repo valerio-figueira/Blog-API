@@ -19,7 +19,7 @@ const Popular = mongoose.model('popular', {
     },
     date: {
         type: Date,
-        default: new Date().toString()
+        default: Date.now()
     }
 })
 

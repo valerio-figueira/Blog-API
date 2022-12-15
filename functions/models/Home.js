@@ -19,7 +19,7 @@ const Home = mongoose.model('home', {
     },
     date: {
         type: Date,
-        default: new Date().toString()
+        default: Date.now()
     }
 })
 
