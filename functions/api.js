@@ -4,7 +4,7 @@ const serverless = require('serverless-http');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-const favicon = require('serve-favicon');
+const serveFavicon = require('serve-favicon');
 require('dotenv').config();
 
 
@@ -14,9 +14,10 @@ require('dotenv').config();
       methods: ['GET']
     }));
 
+
     // MIDDLEWARE FOR STATIC FILES
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(favicon(path.join(__dirname, "../public", "favicon.ico")))
+    
 
     // JSON CONFIG IN MIDDLEWARES
     app.use(
@@ -33,6 +34,7 @@ require('dotenv').config();
     app.use('/home-posts', require('./routes/Home'));
     app.use('/popular', require('./routes/Popular'));
 
+    
     // NECESSARY TO RUN SERVELESS
     const router = express.Router();
 
@@ -72,6 +74,7 @@ router.get('/imgs/:name', cors(), (req, res) => {
   res.sendFile(fileName);
 
 });
+
 
 
 app.use('/', router);
