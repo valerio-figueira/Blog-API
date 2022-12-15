@@ -16,7 +16,7 @@ require('dotenv').config();
 
     // MIDDLEWARE FOR STATIC FILES
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')))
+    app.use(favicon(path.join('../My API/public/', 'favicon.ico')))
 
     // JSON CONFIG IN MIDDLEWARES
     app.use(
