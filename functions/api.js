@@ -16,7 +16,7 @@ require('dotenv').config();
 
     // MIDDLEWARE FOR STATIC FILES
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(favicon(path.join('../My API/public/', 'favicon.ico')))
+    app.use(favicon(path.join(__dirname, "../public", "favicon.ico")))
 
     // JSON CONFIG IN MIDDLEWARES
     app.use(
@@ -67,14 +67,12 @@ router.get('/author', cors(), (req, res) => {
 
 
 router.get('/imgs/:name', cors(), (req, res) => {
-  const options ={
-    root: path.join('../New App/public/imgs/')
-  }
 
   const fileName = req.params.name;
-  res.sendFile(fileName, options);
+  res.sendFile(fileName);
 
 });
+
 
 app.use('/', router);
 
