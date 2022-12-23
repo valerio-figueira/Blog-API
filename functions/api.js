@@ -32,6 +32,7 @@ require('dotenv').config();
     app.use('/aside-posts', require('./routes/AsidePosts'));
     app.use('/home-posts', require('./routes/Home'));
     app.use('/popular', require('./routes/Popular'));
+    app.use('/shop', require('./routes/Shop'));
 
 
     // NECESSARY TO RUN SERVELESS
