@@ -44,9 +44,6 @@ require('dotenv').config();
 router.get('/', cors(), (req, res) => {
     res.json({
       'path': 'Home',
-      'by Valerio': 'Hello, world! This is my own public API made using Nodejs & Express ^^',
-      'message': 'Be Welcome!',
-      'About this API': 'You should navigate through these paths as well:',
       'posts': 'https://aedifico.netlify.app/posts',
       'aside': 'https://aedifico.netlify.app/popular',
       'aside': 'https://aedifico.netlify.app/aside-posts',
@@ -56,14 +53,13 @@ router.get('/', cors(), (req, res) => {
 
 router.get('/author', cors(), (req, res) => {
     res.json({
-      'Author': 'Valerio Figueira',
-      'About': 'Just a student and web developer, looking for a space in this technology world. I believe in hard work and discipline. Some technologies I am currently learning are NodeJS, React, Javascript, HTML, CSS, MongoDB, and my favorite O.S Linux.',
-      'Linkedin': 'https://www.linkedin.com/in/valerio-figueira/',
-      'Github': 'https://github.com/valerio-figueira',
-      'Portfolio': 'https://valerio-figueira.github.io/portfolio/',
-      'Location': 'Monte Alegre de Minas - Minas Gerais',
-      'Country': 'Brazil',
-      'Audiat sapiens': '"Tria sunt studientibus necessaria: natura, exercitium et disciplina." - Hugo de São Vitor'
+      'author': 'Valerio Figueira',
+      'Audiat sapiens': '"Tria sunt studientibus necessaria: natura, exercitium et disciplina." - Hugo de São Vitor',
+      'linkedin': 'https://www.linkedin.com/in/valerio-figueira/',
+      'github': 'https://github.com/valerio-figueira',
+      'portfolio': 'https://valerio-figueira.github.io/portfolio/',
+      'location': 'Monte Alegre de Minas - Minas Gerais',
+      'country': 'Brazil',
     })
 })
 
